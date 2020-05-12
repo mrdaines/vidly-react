@@ -20,10 +20,13 @@ class Movies extends Component {
 	}
 
 	renderTable() {
-		if( this.state.movies.length === 0 ) return <p>There are no movies in the database.</p>
+		const { length: count } = this.state.movies;
 
-		return <div>
-			<p>Showing {this.state.movies.length} movies in the database.</p>
+		if( count === 0 )
+			return <p>There are no movies in the database.</p>
+
+		return ( <React.Fragment>
+			<p>Showing {count} movies in the database.</p>
 			<table className="table">
 				<thead>
 					<tr>
@@ -38,7 +41,7 @@ class Movies extends Component {
 				{ this.state.movies.map(movie => this.renderTableRow(movie) ) }
 				</tbody>
 			</table>
-		</div>
+		</React.Fragment> )
 
 	}
 
