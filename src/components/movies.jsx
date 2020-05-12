@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getMovies } from '../services/fakeMovieService';
-import { remove } from 'lodash';
 
 class Movies extends Component {
 	state = {
@@ -8,8 +7,8 @@ class Movies extends Component {
 	}
 
 	handleDelete = movie => {
-		remove(this.state.movies, (thisMovie) => { return thisMovie._id === movie._id; });
-		this.setState({ movies: this.state.movies });
+		const movies = this.state.movies.filter(m => m._id !== movie._id);
+		this.setState({ movies: movies });
 	};
 
 	render() {
