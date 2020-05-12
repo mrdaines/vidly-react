@@ -25,28 +25,34 @@ class Movies extends Component {
 
 		return <div>
 			<p>Showing {this.state.movies.length} movies in the database.</p>
-			<div>
-				<div className="row">
-					<div className="col-md">Title</div>
-					<div className="col-md">Genre</div>
-					<div className="col-md">Stock</div>
-					<div className="col-md">Rate</div>
-					<div className="col-md">&nbsp;</div>
-				</div>
-				{ this.state.movies.map(movie => this.renderLineItem(movie) ) }
-			</div>
+			<table className="table">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Genre</th>
+						<th>Stock</th>
+						<th>Rate</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+				{ this.state.movies.map(movie => this.renderTableRow(movie) ) }
+				</tbody>
+			</table>
 		</div>
 
 	}
 
-	renderLineItem(movie) {
-		return <div key={movie._id} className="row">
-			<div className="col-sm">{movie.title}</div>
-			<div className="col-sm">{movie.genre.name }</div>
-			<div className="col-sm">{movie.numberInStock }</div>
-			<div className="col-sm">{movie.dailyRentalRate }</div>
-			<div className="col-sm"><button onClick={ () => this.handleDelete(movie) } className="btn btn-secondary btn-sm">Delete</button></div>
-		</div>
+	renderTableRow(movie) {
+		return <tr key={movie._id}>
+			<td>{movie.title}</td>
+			<td>{movie.genre.name }</td>
+			<td>{movie.numberInStock }</td>
+			<td>{movie.dailyRentalRate }</td>
+			<td>
+				<button onClick={ () => this.handleDelete(movie) } className="btn btn-danger btn-sm">Delete</button>
+			</td>
+		</tr>
 	}
 }
 
