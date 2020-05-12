@@ -15,19 +15,28 @@ class Movies extends Component {
 	render() {
 		return (
 			<div className="container">
-				<p>Showing {this.state.movies.length} movies in the database.</p>
-				<div>
-					<div className="row">
-						<div className="col-md">Title</div>
-						<div className="col-md">Genre</div>
-						<div className="col-md">Stock</div>
-						<div className="col-md">Rate</div>
-						<div className="col-md">&nbsp;</div>
-					</div>
-					{ this.state.movies.map(movie => this.renderLineItem(movie) ) }
-				</div>
+				{ this.renderTable() }
 			</div>
 		);
+	}
+
+	renderTable() {
+		if( this.state.movies.length === 0 ) return <p>There are no movies in the database.</p>
+
+		return <div>
+			<p>Showing {this.state.movies.length} movies in the database.</p>
+			<div>
+				<div className="row">
+					<div className="col-md">Title</div>
+					<div className="col-md">Genre</div>
+					<div className="col-md">Stock</div>
+					<div className="col-md">Rate</div>
+					<div className="col-md">&nbsp;</div>
+				</div>
+				{ this.state.movies.map(movie => this.renderLineItem(movie) ) }
+			</div>
+		</div>
+
 	}
 
 	renderLineItem(movie) {
