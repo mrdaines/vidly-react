@@ -3,7 +3,7 @@ import * as genresAPI from "./fakeGenreService";
 const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471815",
-    title: "Terminator",
+    title: "National Treasure",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 6,
     liked: false,
@@ -12,7 +12,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd471816",
-    title: "Die Hard",
+    title: "Big Hero 6",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 5,
     liked: true,
@@ -20,7 +20,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd471817",
-    title: "Get Out",
+    title: "Spy Kids",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 8,
     liked: false,
@@ -28,7 +28,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd471819",
-    title: "Trip to Italy",
+    title: "Bugs Bunny: Bugsy & Mugsy",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
     liked: false,
@@ -36,7 +36,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd47181a",
-    title: "Airplane",
+    title: "Snowball Express",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
     liked: false,
@@ -44,7 +44,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd47181b",
-    title: "Wedding Crashers",
+    title: "The Computer Wore Tennis Shoes",
     genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 7,
     liked: false,
@@ -52,7 +52,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd47181e",
-    title: "Gone Girl",
+    title: "Escape From Witch Mountain",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 7,
     liked: false,
@@ -60,7 +60,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd47181f",
-    title: "The Sixth Sense",
+    title: "20,000 Leagues Under The Sea",
     genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
     numberInStock: 4,
     liked: false,
@@ -68,7 +68,7 @@ const movies = [
   },
   {
     _id: "5b21ca3eeb7f6fbccd471821",
-    title: "The Avengers",
+    title: "Zootopia",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
     numberInStock: 7,
     liked: false,
