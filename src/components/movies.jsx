@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getMovies } from '../services/fakeMovieService';
+import Like from './common/like';
 
 class Movies extends Component {
 	state = {
@@ -11,10 +12,18 @@ class Movies extends Component {
 		this.setState({ movies: movies });
 	};
 
+	handleLike = (movie) => {
+		let movies = [...this.state.movies];
+		const index = movies.indexOf(movie);
+
+		movies[index].liked = !movies[index].liked;
+		this.setState({ movies: movies });
+	};
+
 	render() {
 		return (
 			<div className="container">
-				{ this.renderTable() }
+				{this.renderTable()}
 			</div>
 		);
 	}
@@ -22,10 +31,10 @@ class Movies extends Component {
 	renderTable() {
 		const { length: count } = this.state.movies;
 
-		if( count === 0 )
+		if (count === 0)
 			return <p>There are no movies in the database.</p>
 
-		return ( <React.Fragment>
+		return (<React.Fragment>
 			<p>Showing {count} movies in the database.</p>
 			<table className="table">
 				<thead>
@@ -35,24 +44,26 @@ class Movies extends Component {
 						<th>Stock</th>
 						<th>Rate</th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-				{ this.state.movies.map(movie => this.renderTableRow(movie) ) }
+					{this.state.movies.map(movie => this.renderTableRow(movie))}
 				</tbody>
 			</table>
-		</React.Fragment> )
+		</React.Fragment>)
 
 	}
 
 	renderTableRow(movie) {
 		return <tr key={movie._id}>
 			<td>{movie.title}</td>
-			<td>{movie.genre.name }</td>
-			<td>{movie.numberInStock }</td>
-			<td>{movie.dailyRentalRate }</td>
+			<td>{movie.genre.name}</td>
+			<td>{movie.numberInStock}</td>
+			<td>{movie.dailyRentalRate}</td>
+			<td><Like liked={movie.liked} onClick={() => this.handleLike(movie)} /></td>
 			<td>
-				<button onClick={ () => this.handleDelete(movie) } className="btn btn-danger btn-sm">Delete</button>
+				<button onClick={() => this.handleDelete(movie)} className="btn btn-danger btn-sm">Delete</button>
 			</td>
 		</tr>
 	}
