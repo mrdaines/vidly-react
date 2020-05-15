@@ -4,7 +4,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471807",
     title: "Tom & Jerry",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 1,
     liked: true,
     dailyRentalRate: 2.5,
@@ -13,7 +13,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471808",
     title: "Treasure Island",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 12,
     liked: false,
     dailyRentalRate: 1.5,
@@ -22,7 +22,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471809",
     title: "Davey Crockett",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 3,
     liked: false,
     dailyRentalRate: 1.75,
@@ -31,7 +31,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471810",
     title: "Star Wars Lego",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 2,
     liked: false,
     dailyRentalRate: 2.75,
@@ -40,7 +40,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471811",
     title: "Black Beard's Ghost",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 4,
     liked: true,
     dailyRentalRate: 0.5,
@@ -49,7 +49,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471812",
     title: "Lady & The Tramp",
-    genre: { _id: "5b21ca3eeb7f6fbccd471817", name: "Drama" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571703", name: "Drama" },
     numberInStock: 2,
     liked: false,
     dailyRentalRate: 2.25,
@@ -58,7 +58,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471813",
     title: "The Great Muppet Caper",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 1,
     liked: false,
     dailyRentalRate: 1.25,
@@ -67,7 +67,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471814",
     title: "The Princess Bride",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 5,
     liked: false,
     dailyRentalRate: 2.25,
@@ -76,7 +76,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471815",
     title: "National Treasure",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 6,
     liked: false,
     dailyRentalRate: 2.5,
@@ -85,7 +85,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471816",
     title: "Big Hero 6",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571701", name: "Action" },
     numberInStock: 5,
     liked: true,
     dailyRentalRate: 2.5
@@ -93,7 +93,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471817",
     title: "Spy Kids",
-    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571704", name: "Thriller" },
     numberInStock: 8,
     liked: false,
     dailyRentalRate: 3.5
@@ -101,47 +101,47 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471819",
     title: "Bugs Bunny: Bugsy & Mugsy",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 7,
     liked: false,
     dailyRentalRate: 3.5
   },
   {
-    _id: "5b21ca3eeb7f6fbccd47181a",
+    _id: "5b21ca3eeb7f6fbccd471820",
     title: "Snowball Express",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 7,
-    liked: false,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd47181b",
-    title: "The Computer Wore Tennis Shoes",
-    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
-    numberInStock: 7,
-    liked: false,
-    dailyRentalRate: 3.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd47181e",
-    title: "Escape From Witch Mountain",
-    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
-    numberInStock: 7,
-    liked: false,
-    dailyRentalRate: 4.5
-  },
-  {
-    _id: "5b21ca3eeb7f6fbccd47181f",
-    title: "20,000 Leagues Under The Sea",
-    genre: { _id: "5b21ca3eeb7f6fbccd471820", name: "Thriller" },
-    numberInStock: 4,
     liked: false,
     dailyRentalRate: 3.5
   },
   {
     _id: "5b21ca3eeb7f6fbccd471821",
+    title: "The Computer Wore Tennis Shoes",
+    genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
+    numberInStock: 7,
+    liked: false,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471822",
+    title: "Escape From Witch Mountain",
+    genre: { _id: "5b21ca3eeb7f6fbccd571704", name: "Thriller" },
+    numberInStock: 7,
+    liked: false,
+    dailyRentalRate: 4.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471823",
+    title: "20,000 Leagues Under The Sea",
+    genre: { _id: "5b21ca3eeb7f6fbccd571704", name: "Thriller" },
+    numberInStock: 4,
+    liked: false,
+    dailyRentalRate: 3.5
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471824",
     title: "Zootopia",
-    genre: { _id: "5b21ca3eeb7f6fbccd471817", name: "Drama" },
+    genre: { _id: "5b21ca3eeb7f6fbccd571703", name: "Drama" },
     numberInStock: 7,
     liked: false,
     dailyRentalRate: 3.5

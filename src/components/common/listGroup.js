@@ -6,15 +6,11 @@ const ListGroup = props => {
 
 	return (
 		<ul className="list-group">
-			<li className="list-group-item">All Genres</li>
 			{items.map(item => (
-				<li
-					key={item[valueProperty]}
+				<li key={item[valueProperty] ? item[valueProperty] : 'defaultKey'}
 					className={item === selectedItem ? 'list-group-item active' : 'list-group-item'}
 					onClick={() => { onItemSelect(item) }}
-				>
-					{item[textProperty]}
-				</li>
+				>{item[textProperty]}</li>
 			))}
 		</ul>
 	);
@@ -27,7 +23,7 @@ ListGroup.defaultProps = {
 
 ListGroup.propTypes = {
 	items: PropTypes.array.isRequired,
-	selectedItem: PropTypes.object.isRequired,
+	selectedItem: PropTypes.object,
 	textProperty: PropTypes.string.isRequired,
 	valueProperty: PropTypes.string.isRequired,
 	onItemSelect: PropTypes.func.isRequired
