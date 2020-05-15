@@ -2,6 +2,78 @@ import * as genresAPI from "./fakeGenreService";
 
 const movies = [
   {
+    _id: "5b21ca3eeb7f6fbccd471807",
+    title: "Tom & Jerry",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 1,
+    liked: true,
+    dailyRentalRate: 2.5,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471808",
+    title: "Treasure Island",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 12,
+    liked: false,
+    dailyRentalRate: 1.5,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471809",
+    title: "Davey Crockett",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 3,
+    liked: false,
+    dailyRentalRate: 1.75,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471810",
+    title: "Star Wars Lego",
+    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    numberInStock: 2,
+    liked: false,
+    dailyRentalRate: 2.75,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471811",
+    title: "Black Beard's Ghost",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Comedy" },
+    numberInStock: 4,
+    liked: true,
+    dailyRentalRate: 0.5,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471812",
+    title: "Lady & The Tramp",
+    genre: { _id: "5b21ca3eeb7f6fbccd471718", name: "Drama" },
+    numberInStock: 2,
+    liked: false,
+    dailyRentalRate: 2.25,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471813",
+    title: "The Great Muppet Caper",
+    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    numberInStock: 1,
+    liked: false,
+    dailyRentalRate: 1.25,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
+    _id: "5b21ca3eeb7f6fbccd471814",
+    title: "The Princess Bride",
+    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
+    numberInStock: 5,
+    liked: false,
+    dailyRentalRate: 2.25,
+    publishDate: "2018-01-03T19:04:28.809Z"
+  },
+  {
     _id: "5b21ca3eeb7f6fbccd471815",
     title: "National Treasure",
     genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
