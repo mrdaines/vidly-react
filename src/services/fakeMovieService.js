@@ -40,7 +40,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471811",
     title: "Black Beard's Ghost",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Comedy" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471814", name: "Comedy" },
     numberInStock: 4,
     liked: true,
     dailyRentalRate: 0.5,
@@ -49,7 +49,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471812",
     title: "Lady & The Tramp",
-    genre: { _id: "5b21ca3eeb7f6fbccd471718", name: "Drama" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471817", name: "Drama" },
     numberInStock: 2,
     liked: false,
     dailyRentalRate: 2.25,
@@ -141,7 +141,7 @@ const movies = [
   {
     _id: "5b21ca3eeb7f6fbccd471821",
     title: "Zootopia",
-    genre: { _id: "5b21ca3eeb7f6fbccd471818", name: "Action" },
+    genre: { _id: "5b21ca3eeb7f6fbccd471817", name: "Drama" },
     numberInStock: 7,
     liked: false,
     dailyRentalRate: 3.5
