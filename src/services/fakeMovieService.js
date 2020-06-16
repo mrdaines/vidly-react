@@ -104,7 +104,7 @@ const movies = [
     genre: { _id: "5b21ca3eeb7f6fbccd571702", name: "Comedy" },
     numberInStock: 7,
     liked: false,
-    dailyRentalRate: 3.5
+    dailyRentalRate: 5.0
   },
   {
     _id: "5b21ca3eeb7f6fbccd471820",
