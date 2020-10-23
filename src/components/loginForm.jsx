@@ -8,7 +8,18 @@ class LoginForm extends Component {
 	};
 
 	validate = () => {
-		return { username: 'Username is required.' };
+		const errors = {};
+
+		const { account } = this.state;
+		if (account.username.trim() === '')
+			errors.username = 'Username is required.';
+
+		if (account.password.trim() === '')
+			errors.password = 'Password is required.';
+		else if (account.password.trim().length < 8)
+			errors.password = 'Password must be 8 characters or longer.';
+
+		return Object.keys(errors).length === 0 ? null : errors;
 	}
 
 	handleSubmit = e => {
@@ -18,7 +29,7 @@ class LoginForm extends Component {
 		this.setState({ errors });
 		if (errors) return;
 
-		console.log('Submitted: ');
+		console.log('Submitted');
 	};
 
 	handleChange = ({ currentTarget: input }) => {
@@ -33,6 +44,7 @@ class LoginForm extends Component {
 			<h1>Login</h1>
 			<form onSubmit={this.handleSubmit}>
 				<Input
+					autoFocus={true}
 					type="text"
 					name="username"
 					value={account.username}
@@ -40,6 +52,7 @@ class LoginForm extends Component {
 					onChange={this.handleChange}
 				/>
 				<Input
+					autoFocus={false}
 					type="password"
 					name="password"
 					value={account.password}
