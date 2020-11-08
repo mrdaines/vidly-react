@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './common/input';
+import Joi from 'joi-browser';
 
 class LoginForm extends Component {
 	state = {
@@ -7,7 +8,15 @@ class LoginForm extends Component {
 		errors: {}
 	};
 
+	schema = {
+		username: Joi.string().required(),
+		password: Joi.string().required().min(8)
+	}
+
 	validate = () => {
+		const result = Joi.validate(this.state.account, this.schema)
+		console.log(result);
+
 		const errors = {};
 
 		const { account } = this.state;
