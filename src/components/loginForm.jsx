@@ -28,6 +28,16 @@ class LoginForm extends Component {
 		return errors;
 	}
 
+	validateProperty = ({ name, value }) => {
+		const obj = { [name]: value };
+		const options = { abortEarly: false };
+		const schema = { [name]: this.schema[name] };
+
+		const { error } = Joi.validate(obj, schema, options);
+
+		return error ? error.details[0].message : null;
+	}
+
 	handleSubmit = e => {
 		e.preventDefault();
 
@@ -37,21 +47,6 @@ class LoginForm extends Component {
 
 		console.log('Submitted');
 	};
-
-	validateProperty = ({ name, value }) => {
-		if (name === 'username') {
-			if (value.trim() === '')
-				return 'Username is required.';
-		}
-
-		if (name === 'password') {
-			if (value.trim() === '')
-				return 'Password is required.';
-			if (value.trim().length < 8)
-				return 'Password must be 8 characters or longer.';
-		}
-		return null;
-	}
 
 	handleChange = ({ currentTarget: input }) => {
 		const errors = { ...this.state.errors };
