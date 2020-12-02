@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import Joi from 'joi-browser';
+import Input from './input';
 
 class Form extends Component {
     state = {
         date: {},
         errors: {}
-    }
+    };
 
     validate = () => {
 		const options = { abortEarly: false };
@@ -19,7 +20,7 @@ class Form extends Component {
 				item.message;
 		}
 		return errors;
-	}
+	};
 
 	validateProperty = ({ name, value }) => {
 		const obj = { [name]: value };
@@ -29,7 +30,7 @@ class Form extends Component {
 		const { error } = Joi.validate(obj, schema, options);
 
 		return error ? error.details[0].message : null;
-	}
+	};
 
     handleSubmit = e => {
 		e.preventDefault();
@@ -54,8 +55,27 @@ class Form extends Component {
 		data[input.name] = input.value;
 
 		this.setState({ data, errors });
-	}
+	};
 
+    renderButton(label) {
+        return <button disabled={this.validate()} className="btn btn-primary">{label}</button>
+    };
+
+    renderInput(name, label, autoFocus, type = 'text'){
+        const { data, errors } = this.state;
+
+        return (
+        <Input
+            autoFocus={autoFocus}
+            type={type}
+            name={name}
+            value={data[name]}
+            label={label}
+            onChange={this.handleChange}
+            error={errors[name]}
+        />
+        );
+    };
 }
 
 export default Form;
