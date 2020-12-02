@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Input from './common/input';
 import Joi from 'joi-browser';
+import Form from './common/form';
 
-class LoginForm extends Component {
+class LoginForm extends Form {
 	state = {
-		account: { username: '', password: '' },
+		data: { username: '', password: '' },
 		errors: {}
 	};
 
@@ -13,57 +14,12 @@ class LoginForm extends Component {
 		password: Joi.string().required().min(8).label("Password")
 	}
 
-	validate = () => {
-		const options = { abortEarly: false };
-		const { error } = Joi.validate(this.state.account, this.schema, options);
-		if (!error) return null;
-
-		const errors = {};
-		for (let item of error.details) {
-			errors[item.path[0]] = errors[item.path[0]] ?
-				errors[item.path[0]] + " AND " + item.message :
-				item.message;
-		}
-		return errors;
-	}
-
-	validateProperty = ({ name, value }) => {
-		const obj = { [name]: value };
-		const options = { abortEarly: false };
-		const schema = { [name]: this.schema[name] };
-
-		const { error } = Joi.validate(obj, schema, options);
-
-		return error ? error.details[0].message : null;
-	}
-
-	handleSubmit = e => {
-		e.preventDefault();
-
-		const errors = this.validate();
-		this.setState({ errors: errors || {} });
-		if (errors) return;
-
+	doSubmit = () => {
 		console.log('Submitted');
-	};
-
-	handleChange = ({ currentTarget: input }) => {
-		const errors = { ...this.state.errors };
-		const errorMessage = this.validateProperty(input);
-
-		if (errorMessage)
-			errors[input.name] = errorMessage;
-		else
-			delete errors[input.name];
-
-		const account = { ...this.state.account };
-		account[input.name] = input.value;
-
-		this.setState({ account, errors });
 	}
 
 	render() {
-		const { account, errors } = this.state;
+		const { data, errors } = this.state;
 		return <div>
 			<h1>Login</h1>
 			<form onSubmit={this.handleSubmit}>
@@ -71,7 +27,7 @@ class LoginForm extends Component {
 					autoFocus={true}
 					type="text"
 					name="username"
-					value={account.username}
+					value={data.username}
 					label="Username"
 					onChange={this.handleChange}
 					error={errors.username}
@@ -80,7 +36,7 @@ class LoginForm extends Component {
 					autoFocus={false}
 					type="password"
 					name="password"
-					value={account.password}
+					value={data.password}
 					label="Password"
 					onChange={this.handleChange}
 					error={errors.password}
