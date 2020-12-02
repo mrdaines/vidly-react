@@ -1,34 +1,57 @@
 import React from 'react';
-import { getMovie, getMovies } from '../services/fakeMovieService';
+import { getMovie, getMovies, saveMovie } from '../services/fakeMovieService';
 import { getGenres } from '../services/fakeGenreService';
 import Joi from 'joi-browser';
 import Form from './common/form';
+import { Redirect } from "react-router-dom";
 
 class MovieForm extends Form {
 	state = {
-		data: {},
-		genres: {},
-		movies: {},
+		data: {
+			title: "",
+			genreId: "",
+			numberInStock: "",
+			dailyRentalRate: ""
+		},
+		genres: [],
 		errors: {}
 	};
 
-	componentDidMount() {
-		const { match: { params } } = this.props;
-		const defaultGenre = { _id: '', name: 'All Genres' };
-		const genres = [defaultGenre, ...getGenres()];
-		this.setState({ data: getMovie(params.id), genres, movies: getMovies() });
-
-		console.log( params );
-	}
-
 	schema = {
+		_id: Joi.string(),
 		title: Joi.string().required().label("Title"),
-		genre: Joi.string().required().min(8).label("Genre"),
-		numInStock: Joi.number().integer().required().label("Number in Stock"),
-		rate: Joi.number().required().label("Rate")
+		genreId: Joi.string().required().label("Genre"),
+		numberInStock: Joi.number().integer().required().min(0).max(100).label("Number in Stock"),
+		dailyRentalRate: Joi.number().required().min(0).max(10).label("Daily Rental Rate")
+	};
+
+	componentDidMount() {
+		const genres = getGenres();
+		this.setState({ genres });
+
+		const movieId = this.props.match.params.id;
+		if( movieId === 'new') return;
+		
+		const movie = getMovie(movieId);
+		if( !movie ) return this.props.history.replace('/not-found');
+
+		this.setState({ data: this.mapToViewModel(movie) });
+	};
+
+	mapToViewModel(movie) {
+		return {
+			_id: movie._id,
+			title: movie.title,
+			genreId: movie.genre._id,
+			numberInStock: movie.numberInStock,
+			dailyRentalRate: movie.dailyRentalRate
+		};
 	};
 
 	doSubmit = (movie) => {
+		saveMovie(this.state.data);
+
+		return this.props.history.replace('/not-found');
 		console.log('Submitted');
 	};
 
@@ -41,13 +64,17 @@ class MovieForm extends Form {
 	};
 
 	render() {
+		if( !this.state.data ) {
+			return <Redirect to="/not-found" />
+		}
+
 		return <div>
 			<h1>Movie Form</h1>
 			<form onSubmit={this.handleSubmit}>
 				{this.renderInput('title', 'Title', false)}
-				{this.renderInput('genre', 'Genre', false)}
+				{this.renderSelect('genreId', 'Genre', this.state.genres)}
                 {this.renderInput('numberInStock', 'Number in Stock', false)}
-                {this.renderInput('dailyRentalRate', 'Rate', false)}
+                {this.renderInput('dailyRentalRate', 'Daily Rental Rate', false)}
 				{this.renderButton('Save')}
 			</form>
 		</div>;

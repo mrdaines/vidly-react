@@ -6,6 +6,7 @@ import MoviesTable from './moviesTable';
 import Pagination from './common/pagination';
 import { paginate } from '../utils/paginate';
 import _ from 'lodash';
+import Form from './common/form';
 
 class Movies extends Component {
 	state = {
@@ -91,6 +92,7 @@ class Movies extends Component {
 					/>
 				</div>
 				<div className="col">
+					<button className="btn btn-primary">New</button>
 					<p>Showing {totalCount} movies in the database.</p>
 					<MoviesTable
 						movies={movies}
