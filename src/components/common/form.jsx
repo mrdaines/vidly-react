@@ -4,12 +4,12 @@ import Input from './input';
 import Select from './select';
 
 class Form extends Component {
-    state = {
-        data: {},
-        errors: {}
-    };
+	state = {
+		data: {},
+		errors: {}
+	};
 
-    validate = () => {
+	validate = () => {
 		const options = { abortEarly: false };
 		const { error } = Joi.validate(this.state.data, this.schema, options);
 		if (!error) return null;
@@ -33,7 +33,7 @@ class Form extends Component {
 		return error ? error.details[0].message : null;
 	};
 
-    handleSubmit = e => {
+	handleSubmit = e => {
 		e.preventDefault();
 
 		const errors = this.validate();
@@ -43,7 +43,7 @@ class Form extends Component {
 		this.doSubmit();
 	};
 
-    handleChange = ({ currentTarget: input }) => {
+	handleChange = ({ currentTarget: input }) => {
 		const errors = { ...this.state.errors };
 		const errorMessage = this.validateProperty(input);
 
@@ -58,42 +58,40 @@ class Form extends Component {
 		this.setState({ data, errors });
 	};
 
-    renderButton(label) {
-        return <button disabled={this.validate()} className="btn btn-primary">{label}</button>
-    };
+	renderButton(label) {
+		return <button disabled={this.validate()} className="btn btn-primary">{label}</button>
+	};
 
-    renderInput(name, label, autoFocus, type = 'text'){
-        const { data, errors } = this.state;
+	renderInput(name, label, autoFocus, type = 'text'){
+		const { data, errors } = this.state;
 
-        console.log( data );
+		return (
+		<Input
+			autoFocus={autoFocus}
+			type={type}
+			name={name}
+			value={data[name]}
+			label={label}
+			onChange={this.handleChange}
+			error={errors[name]}
+		/>
+		);
+	};
 
-        return (
-        <Input
-            autoFocus={autoFocus}
-            type={type}
-            name={name}
-            value={data[name]}
-            label={label}
-            onChange={this.handleChange}
-            error={errors[name]}
-        />
-        );
-    };
+	renderSelect(name, label, options){
+		const { data, errors } = this.state;
 
-    renderSelect(name, label, options){
-        const { data, errors } = this.state;
-
-        return (
-        <Select
-            name={name}
-            value={data[name]}
-            label={label}
-            options={options}
-            onChange={this.handleChange}
-            error={errors[name]}
-        />
-        );
-    };
+		return (
+		<Select
+			name={name}
+			value={data[name]}
+			label={label}
+			options={options}
+			onChange={this.handleChange}
+			error={errors[name]}
+		/>
+		);
+	};
 
 }
 

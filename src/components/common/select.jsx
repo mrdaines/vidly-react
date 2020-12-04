@@ -1,4 +1,3 @@
-import { options } from 'joi-browser';
 import React from 'react';
 
 const Select = ({ name, label, options, error, ...rest }) => {
@@ -6,9 +5,9 @@ const Select = ({ name, label, options, error, ...rest }) => {
 		<div className="form-group">
 			<label htmlFor={name}>{label}</label>
 			<select name={name} id={name} {...rest} className="form-control">
-				<option value="" />
+				<option key="new" value="" />
 					{options.map(option => (
-						<option key={option.id} value={option._id}>
+						<option key={option._id} value={option._id}>
 							{option.name}
 						</option>
 				))}

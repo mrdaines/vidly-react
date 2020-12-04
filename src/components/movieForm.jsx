@@ -1,5 +1,5 @@
 import React from 'react';
-import { getMovie, getMovies, saveMovie } from '../services/fakeMovieService';
+import { getMovie, saveMovie } from '../services/fakeMovieService';
 import { getGenres } from '../services/fakeGenreService';
 import Joi from 'joi-browser';
 import Form from './common/form';
@@ -51,8 +51,7 @@ class MovieForm extends Form {
 	doSubmit = (movie) => {
 		saveMovie(this.state.data);
 
-		return this.props.history.replace('/not-found');
-		console.log('Submitted');
+		return this.props.history.push('/movies');
 	};
 
 	handleLike = (movie) => {
